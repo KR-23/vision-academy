@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #A15C38; /* Rust Brown */
+  --color-primary-hover: #8c4c2c;
+  --color-accent: #C3A6A0; /* Dusty Rose */
+  --color-success: #22C55E;
+  --color-warning: #F59E0B;
+  --color-danger: #EF4444;
+  
+  --color-bg-main: #ffffff;
+  --color-bg-secondary: #F7F1F0; /* Cream Off-white */
+  --color-text-main: #262220; /* Dark Charcoal */
+  --color-text-secondary: #5c5652;
+  
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+.dark {
+  --color-bg-main: #ffffff;
+  --color-bg-secondary: #F7F1F0; /* Keep cream background globally */
+  --color-text-main: #262220; /* Keep charcoal text globally */
+  --color-text-secondary: #5c5652;
+}
+
+@layer utilities {
+  .glass {
+    background-color: var(--color-bg-main);
+    color: var(--color-text-main);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+  }
+  
+  .dark .glass {
+    background-color: var(--color-bg-main);
+    color: var(--color-text-main);
+    border: 1px solid rgba(51, 65, 85, 0.5);
+  }
+
+  .glass-dark {
+    background-color: var(--color-bg-main);
+    color: var(--color-text-main);
+    border: 1px solid rgba(51, 65, 85, 0.5);
+  }
+
+  .border-linear {
+    border-color: rgba(226, 232, 240, 0.8);
+  }
+
+  .shadow-soft {
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+  }
+}
+
+/* Custom Base Styles */
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text-main);
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+html, body, .min-h-screen {
+  background-image: url('/network_bg.svg');
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* Custom Premium Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(156, 163, 175, 0.3);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(156, 163, 175, 0.6);
+}
+
+/* Confetti overlay index */
+.canvas-confetti {
+  z-index: 99999 !important;
+  position: fixed;
+  pointer-events: none;
+}
